@@ -5,14 +5,22 @@ block content
         .wrapper-content 
             .image-content 
                 .each-image
-                    img(src='https://archive.org/download/no-photo-available/no-photo-available.png', alt="image")
+                    img(src=drug.image ? `/public/uploads/${drug.image}` : 'https://archive.org/download/no-photo-available/no-photo-available.png', alt="image")
                     .price-wrapper 
                         h3 Price:
                         .price
-                            p $34
+                            if(drug.discount)
+                                p.real_price $#{drug.real_price}
+                            p $#{drug.discounted_price}
             .each_blog-content
-                h2.title sdf
-                p.little-description sdfds
+                h2.title #{drug.med_name}
+                p.little-description #{drug.about_med}
                 .buttons 
-                    a(href='').update Edit
+                    a(href=`/add_new_drug?id=${drug.id}`).update Edit
                     a(type="button").delete Delete 
+        .modal_delete
+            .modal_delete_content
+                h3 Do you really want to delete?
+                .claim
+                    a(href=`/${drug.id}/delete`) Yes 
+                    a.reject_delete No

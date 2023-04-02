@@ -1,0 +1,249 @@
+.add_wrapper {
+    align-items: center;
+    background: #f2f4f8;
+    border: 0;
+    display: flex;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+  }
+  
+  form {
+    --background: white;
+    --border: rgba(0, 0, 0, 0.125);
+    --borderDark: rgba(0, 0, 0, 0.25);
+    --borderDarker: rgba(0, 0, 0, 0.5);
+    --bgColorH: 0;
+    --bgColorS: 0%;
+    --bgColorL: 98%;
+    --fgColorH: 210;
+    --fgColorS: 50%;
+    --fgColorL: 38%;
+    --shadeDark: 0.3;
+    --shadeLight: 0.7;
+    --shadeNormal: 0.5;
+    --borderRadius: 0.125rem;
+    --highlight: #306090;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--borderRadius);
+    box-shadow: 0 1rem 1rem -0.75rem var(--border);
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    position: relative;
+    overflow: hidden;
+    width: 50%;
+  }
+  
+  form a:hover {
+    color: hsl(var(--fgColorH), var(--fgColorS), calc(var(--fgColorL) * 0.85));
+    transition: color 0.25s;
+  }
+  
+  form a:focus {
+    color: hsl(var(--fgColorH), var(--fgColorS), calc(var(--fgColorL) * 0.85));
+    outline: 1px dashed
+      hsl(
+        var(--fgColorH),
+        calc(var(--fgColorS) * 2),
+        calc(var(--fgColorL) * 1.15)
+      );
+    outline-offset: 2px;
+  }
+  
+  form > div {
+    order: 2;
+  }
+  
+  label {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  .label {
+    position: relative;
+  }
+  
+  label > span {
+    color: var(--borderDarker);
+    display: block;
+    font-size: 1rem;
+    margin-top: 0.625rem;
+    order: 1;
+    transition: all 0.25s;
+  }
+  
+  label > span.required::after {
+    content: "*";
+    color: #dd6666;
+    margin-left: 0.125rem;
+  }
+  
+  label input {
+    order: 2;
+    outline: none;
+  }
+  
+  label input::placeholder {
+    color: var(--borderDark);
+  }
+  
+  label:hover span {
+    color: hsl(var(--fgColorH), var(--fgColorS), var(--fgColorL));
+  }
+  
+  label input.text:focus,
+  label input.text:active {
+    border-color: hsl(
+      var(--fgColorH),
+      calc(var(--fgColorS) * 2),
+      calc(var(--fgColorL) * 1.15)
+    );
+    box-shadow: 0 1px
+      hsl(
+        var(--fgColorH),
+        calc(var(--fgColorS) * 2),
+        calc(var(--fgColorL) * 1.15)
+      );
+  }
+  
+  input.text:focus + span,
+  input.text:active + span,
+  textarea:focus + span {
+    color: hsl(
+      var(--fgColorH),
+      calc(var(--fgColorS) * 2),
+      calc(var(--fgColorL) * 1.15)
+    );
+  }
+  
+  input {
+    border: 1px solid var(--border);
+    border-radius: var(--borderRadius);
+    box-sizing: border-box;
+    font-size: 1.2rem;
+    height: 2.25rem;
+    line-height: 1.25rem;
+    margin-top: 0.25rem;
+    order: 2;
+    padding: 0.25rem 0.5rem;
+    width: 100%;
+    transition: all 0.25s;
+  }
+  
+  input[type="submit"] {
+    color: hsl(var(--bgColorH), var(--bgColorS), var(--bgColorL));
+    background: hsl(var(--fgColorH), var(--fgColorS), var(--fgColorL));
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 0.625rem;
+    order: 4;
+    outline: 1px dashed transparent;
+    outline-offset: 2px;
+    padding-left: 0;
+    text-transform: uppercase;
+  }
+  
+  input[type="submit"]:focus {
+    background: hsl(
+      var(--fgColorH),
+      var(--fgColorS),
+      calc(var(--fgColorL) * 0.85)
+    );
+  }
+  
+  input[type="submit"]:hover {
+    background: hsl(
+      var(--fgColorH),
+      var(--fgColorS),
+      calc(var(--fgColorL) * 0.85)
+    );
+  }
+  
+  input[type="submit"]:active {
+    background: hsl(
+      var(--fgColorH),
+      calc(var(--fgColorS) * 2),
+      calc(var(--fgColorL) * 1.15)
+    );
+    transition: all 0.125s;
+  }
+  
+  textarea {
+    width: 100%;
+    margin-top: 1rem;
+    resize: none;
+    padding: 0.5rem 1rem;
+    font-size: 1.3rem;
+    font-family: sans-serif;
+  }
+  
+  textarea:focus {
+    border: 2px solid #306090;
+  }
+  .image {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .a11y-hidden {
+    margin-bottom: 1rem;
+    text-align: center;
+    color: #306090;
+  }
+  
+  .success_modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 2rem;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .content_modal {
+    background-color: #f2f4f8;
+    padding: 1rem;
+    border-radius: 4px;
+  }
+  
+  .content_modal h3 {
+    color: green;
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 1.5rem;
+    padding: 0.2rem 0;
+    margin-bottom: 0.5rem;
+  }
+  .modal-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 0.4rem;
+  }
+  .content_modal button {
+    margin: 0.5rem 0;
+    width: 100%;
+    text-transform: uppercase;
+    padding: 1rem 0.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: #306090;
+    color: #fff;
+  }
+  .discount_err {
+    position: absolute;
+    top: 14px;
+    right: 0;
+    color: red;
+    text-transform: capitalize;
+  }
+  

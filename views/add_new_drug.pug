@@ -3,26 +3,33 @@ extends nav.pug
 block content
     .container 
         .add_wrapper
-            form(action='/add_new_drug' method="POST" enctype="multipart/form-data" id="login-form" class="login-form" autocomplete="off" role="main")
+            form(action=id ? `/add_new_drug?id=${id}`: '/add_new_drug' method="POST" enctype="multipart/form-data" id="login-form" class="login-form" autocomplete="off" role="main")
                 h1(class="a11y-hidden") Add new medicine
                 div
                     label(class="label-email")
-                        input(type="text" class="text" name="med_name" placeholder="Name of medicine" tabindex="1" )
+                        input(type="text" class="text" name="med_name" placeholder="Name of medicine" tabindex="1" value=med_name style=med_name == '' ? 'border: 1px solid red' : '')
                         span(class="required") Name of Medicine
                 div
                     label(class="label")
-                        input(type="number" class="text" name="real_price" placeholder="Before Price" tabindex="2")
+                        input(type="number" class="text" name="real_price" placeholder="Before Price" tabindex="2" value=real_price style=real_price == '' ? 'border: 1px solid red' : '')
                         span(class="required") Price
                         if(real_price_minus)
                             .discount_err Price cannot be negative
                     label(class="label")
-                        input(type="number" class="text" name="discount" placeholder="Discount" tabindex="2")
+                        input(type="number" class="text" name="discount" placeholder="Discount" tabindex="2" value=discount)
                         span Discount
                         if(discountOver)
                             .discount_err discount should not over 100 lower 0
                     label(class="label")
-                        textarea(class="text" name="about_med" placeholder="About medicine" rows="10" ).about_med
+                        textarea(class="text" name="about_med" placeholder="About medicine" rows="10" data-value=about_med style=about_med == '' ? 'border: 1px solid red' : '').about_med
                     label(class="label")
                         span Medicine Image
                         input(type="file" class="image" name="image")
                 input(type="submit" value="Add New")
+            if(added)
+                .success_modal 
+                    .content_modal 
+                        h3 successfully added 
+                        .modal-buttons 
+                            button.goDrugs go to drugs 
+                            button.createNew add again

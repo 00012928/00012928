@@ -12,22 +12,32 @@ block content
                 button.non_discount without discount 
                 button.with_discount with discount
         .drugs 
-                .drug   
-                    .image 
-                        img(src='https://archive.org/download/no-photo-available/no-photo-available.png', alt="img")
-                    h2.title #{drug.med_name}
-                    <hr/>
-                    .little-description 
-                        p.text sdfsd
-                    .price-wrapper 
-                        h3 Price:
-                        .price
-                            p sdfsd
-                        
-                    .readmore        
-                        a(href='') Read more
-                    .delete_edit 
-                        a(href='') DELETE
-                        a(href='') EDIT
-                    if(drug.discount)
-                        .discount 3%
+            if(drugs.length > 0)
+                each drug in drugs
+                    .drug   
+                        .image 
+                            img(src= drug.image ? `/public/uploads/${drug.image}` : 'https://archive.org/download/no-photo-available/no-photo-available.png', alt="img")
+                        h2.title #{drug.med_name}
+                        <hr/>
+                        .little-description 
+                            p.text #{drug.about_med}
+                        .price-wrapper 
+                            h3 Price:
+                            .price
+                                if(drug.discount)
+                                    p.real_price $#{drug.real_price}
+                                p $#{drug.discounted_price}
+                            
+                        .readmore        
+                            a(href=`/drugs/${drug.id}`) Read more
+                        .delete_edit 
+                            a(href=`/${drug.id}/delete`) DELETE
+                            a(href=`/add_new_drug?id=${drug.id}`) EDIT
+                        if(drug.discount)
+                            .discount #{drug.discount}%
+        if(drugs.length == 0)
+            .wrap-null_data
+                .null_data 
+                    img(src="https://img.freepik.com/free-vector/no-data-concept-illustration_114360-616.jpg?w=2000", alt="image")
+
+            
