@@ -1,0 +1,33 @@
+extends nav.pug
+
+block content
+    .container 
+        .filter 
+            .search-drugs 
+                input(type="text" placeholder="Search....." id="search" value=search autofocus onfocus="this.setSelectionRange(this.value.length,this.value.length);").search
+                button.btn.submit(type="submit") 
+                    i(class="fa-solid fa-magnifying-glass-plus")
+            .selection 
+                button.all all
+                button.non_discount without discount 
+                button.with_discount with discount
+        .drugs 
+                .drug   
+                    .image 
+                        img(src='https://archive.org/download/no-photo-available/no-photo-available.png', alt="img")
+                    h2.title #{drug.med_name}
+                    <hr/>
+                    .little-description 
+                        p.text sdfsd
+                    .price-wrapper 
+                        h3 Price:
+                        .price
+                            p sdfsd
+                        
+                    .readmore        
+                        a(href='') Read more
+                    .delete_edit 
+                        a(href='') DELETE
+                        a(href='') EDIT
+                    if(drug.discount)
+                        .discount 3%

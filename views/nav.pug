@@ -1,0 +1,50 @@
+html(lang="en")
+    head
+        title Oson Dorixona
+        link(rel="stylesheet", href="/public/styles/style.css")
+        link(rel="stylesheet", href="/public/styles/add.css")
+        link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer")
+
+    body
+        .wrapper
+            .wrapper_content
+                a(href="/").logo  
+                    i(class="fa-sharp fa-solid fa-book-medical")
+                    h2.text-logo Oson 
+                        span.green Dorixona
+                .pages 
+                    a(href="/").page 
+                        i(class="fa-solid fa-house")
+                        p Home
+                    a(href="/drugs").page 
+                        i(class="fa-solid fa-prescription-bottle-medical")
+                        p Drugs
+                    a(href="/add_new_drug").page 
+                        i(class="fa-sharp fa-solid fa-cart-plus")
+                        p Add Medicine
+                        
+        block content 
+
+        .footer 
+            .container-footer
+                .footer-content
+                    a(href="/").footer_logo  
+                        i(class="fa-sharp fa-solid fa-book-medical")
+                        h2.text-logo Oson 
+                            span.green Dorixona
+                    .socail-medais 
+                        h2.findus Find us
+                        a(href="https://www.facebook.com") 
+                            i(class="fa-brands fa-facebook")
+                        a(href="https://twitter.com") 
+                            i(class="fa-brands fa-twitter")
+                        a(href="https://www.linkedin.com") 
+                            i(class="fa-brands fa-linkedin-in")
+                        a(href="https://www.youtube.com") 
+                            i(class="fa-brands fa-youtube")
+                    .get-app 
+                        h2.get-title Get Oson Mobile App
+                        a(href="https://play.google.com")
+                            img(src="/public/images/google_play.png", alt="")
+                        a(href="https://www.apple.com") 
+                            img(src="/public/images/app_store.png", alt="").app_store
